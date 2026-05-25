@@ -7,7 +7,6 @@ public class EmployeeView {
 
     Scanner sc = new Scanner(System.in);
 
-    // Menu
     public void showMenu() {
 
         System.out.println("\n===== Employee Management System =====");
@@ -25,7 +24,6 @@ public class EmployeeView {
         return sc.nextInt();
     }
 
-    // Input Methods
     public int getId() {
 
         System.out.print("Enter Employee ID: ");
@@ -45,7 +43,6 @@ public class EmployeeView {
         return sc.nextDouble();
     }
 
-    // Display Employees
     public void displayEmployees(Employee[] employees, int count) {
 
         System.out.println("\n----- Employee Records -----");
@@ -61,7 +58,6 @@ public class EmployeeView {
         }
     }
 
-    // Message
     public void showMessage(String msg) {
 
         System.out.println(msg);

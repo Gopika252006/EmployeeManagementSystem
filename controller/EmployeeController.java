@@ -13,13 +13,11 @@ public class EmployeeController {
         count = 0;
     }
 
-    // Add Employee
     public void addEmployee(int id, String name, double salary) {
 
         employees[count++] = new Employee(id, name, salary);
     }
 
-    // Display Employees
     public Employee[] getEmployees() {
 
         return employees;
@@ -30,7 +28,7 @@ public class EmployeeController {
         return count;
     }
 
-    // Search Employee
+   
     public Employee searchEmployee(int id) {
 
         for (int i = 0; i < count; i++) {
@@ -44,7 +42,7 @@ public class EmployeeController {
         return null;
     }
 
-    // Remove Employee
+
     public String removeEmployee(int id) {
 
         Employee e = searchEmployee(id);
@@ -59,7 +57,6 @@ public class EmployeeController {
         return "Employee Removed Successfully";
     }
 
-    // Update Salary
     public String updateSalary(int id, double newSalary) {
 
         Employee e = searchEmployee(id);
