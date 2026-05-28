@@ -1,12 +1,13 @@
 import controller.EmployeeController;
-import view.EmployeeView;
 import model.Employee;
+import view.EmployeeView;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        EmployeeController controller = new EmployeeController(10);
+        EmployeeController controller = new EmployeeController();
+
         EmployeeView view = new EmployeeView();
 
         while (true) {
@@ -23,18 +24,15 @@ public class Main {
                     String name = view.getName();
                     double salary = view.getSalary();
 
-                    controller.addEmployee(id, name, salary);
+                    Employee e = new Employee(id, name, salary);
 
-                    view.showMessage("Employee Added Successfully");
+                    controller.addEmployee(e);
 
                     break;
 
                 case 2:
 
-                    view.displayEmployees(
-                            controller.getEmployees(),
-                            controller.getCount()
-                    );
+                    controller.displayEmployees();
 
                     break;
 
@@ -42,41 +40,24 @@ public class Main {
 
                     int searchId = view.getId();
 
-                    Employee e = controller.searchEmployee(searchId);
-
-                    if (e != null) {
-
-                        view.showMessage(
-                                e.id + " | " +
-                                e.name + " | " +
-                                e.salary
-                        );
-                    }
-                    else {
-
-                        view.showMessage("Employee Not Found");
-                    }
+                    controller.searchEmployee(searchId);
 
                     break;
 
                 case 4:
 
-                    int removeId = view.getId();
+                    int updateId = view.getId();
+                    double newSalary = view.getSalary();
 
-                    view.showMessage(
-                            controller.removeEmployee(removeId)
-                    );
+                    controller.updateSalary( updateId,newSalary);
 
                     break;
 
                 case 5:
 
-                    int updateId = view.getId();
-                    double newSalary = view.getSalary();
+                    int deleteId = view.getId();
 
-                    view.showMessage(
-                            controller.updateSalary(updateId, newSalary)
-                    );
+                    controller.deleteEmployee(deleteId);
 
                     break;
 
